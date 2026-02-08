@@ -33,14 +33,10 @@ class RegisteredUserController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:20', 'unique:users,phone'],
             'email' => ['nullable', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
-            'phone' => ['nullable', 'string', 'max:20', 'unique:users,phone'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
-        if (!$request->email && !$request->phone) {
-            return back()->withErrors(['login' => 'Please provide either an email or phone number.'])->withInput();
-        }
 
         $user = User::create([
             'name' => $request->name,
