@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->timestamp('answered_at')->nullable();
             $table->string('ip_address')->nullable();
             $table->string('theme_id')->nullable();
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

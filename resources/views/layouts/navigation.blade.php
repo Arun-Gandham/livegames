@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         <img style="height: 6rem;margin-top: 10px;" src="{{ asset('images/logo_new.png') }}" alt="Logo" class="block h-9 w-auto" />
 
                     </a>
@@ -18,7 +18,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('history')" :active="request()->routeIs('history')">
                         {{ __('History') }}
                     </x-nav-link>
                 </div>
@@ -93,7 +93,7 @@
             </x-responsive-nav-link>
         </div>
         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-nav-link :href="route('history')" :active="request()->routeIs('history')">
                 {{ __('History') }}
             </x-nav-link>
         </div>

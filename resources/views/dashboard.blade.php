@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Home') }}
         </h2>
     </x-slot>
 
@@ -23,8 +23,11 @@
                                     <li><span class="text-pink-600">&#128151;</span> Create a memorable moment</li>
                                 </ul>
                                 <div class="d-flex gap-2 mt-3">
-                                    <a href="{{ route('valentine.show') }}" class="btn btn-danger fw-bold flex-fill" target="_blank">Preview</a>
-                                    <a href="{{ route('valentine.question.create') }}" class="btn btn-info fw-bold flex-fill">Create Message</a>
+                                    <a href="{{ route('valentine.show',12) }}" class="btn btn-danger fw-bold flex-fill" target="_blank">Preview</a>
+                                    <form method="POST" action="{{ route('valentine.question.create') }}" class="flex-fill">
+                                        @csrf
+                                        <button type="submit" class="btn btn-info fw-bold w-100">Create</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

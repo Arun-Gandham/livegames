@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ValentineController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,9 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,24 +29,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// User question history page
+Route::middleware(['auth'])->get('/history', [App\Http\Controllers\HistoryController::class, 'index'])->name('history');
+// Soft delete question
+Route::middleware(['auth'])->delete('/questions/{id}', [App\Http\Controllers\QuestionDeleteController::class, 'destroy'])->name('questions.destroy');
 
 // Valentine theme question page
-Route::get('/valentine-question', function () {
-    return view('themes.valentine');
-})->name('valentine.question.create');
+Route::post('/valentine-question/create', [ValentineController::class, 'create'])->name('valentine.question.create');
+
+
 Route::post('/questions', function () {
     // This is a placeholder. You should use a controller for real logic.
     return redirect()->route('valentine.question.create')->with('success', 'Question sent!');
 })->name('questions.store');
 
 // Static Valentine show page
-Route::get('/valentine-show', function () {
-    return view('themes.valentine_show');
-})->name('valentine.show');
-// Static Valentine show page
-Route::get('/valentine-show', function () {
-    return view('themes.valentine_show');
-})->name('valentine.show');
+Route::get('/valentine/{id}',  [ValentineController::class, 'show'])->name('valentine.show');
+// Route::get('/history',  [ValentineController::class, 'show'])->name('valentine.show');
 
 // Contact Us page
 Route::get('/contact', function () {
