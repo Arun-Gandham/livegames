@@ -23,11 +23,16 @@
                                     <li><span class="text-pink-600">&#128151;</span> Create a memorable moment</li>
                                 </ul>
                                 <div class="d-flex gap-2 mt-3">
-                                    <a href="{{ route('valentine.show',12) }}" class="btn btn-danger fw-bold flex-fill" target="_blank">Preview</a>
+                                    <a href="{{ route('valentine.show.default') }}" class="btn btn-danger fw-bold flex-fill" target="_blank">Preview</a>
+                                    <a href="{{ route('valentine.custom.form') }}" class="btn btn-danger fw-bold flex-fill">Custom</a>
+
+
                                     <form method="POST" action="{{ route('valentine.question.create') }}" class="flex-fill">
                                         @csrf
                                         <button type="submit" class="btn btn-info fw-bold w-100">Create</button>
                                     </form>
+
+
                                 </div>
                             </div>
                         </div>

@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 // Valentine answer update (AJAX)
 Route::post('/valentine/answer/{id}', [App\Http\Controllers\ValentineController::class, 'answer'])->name('valentine.answer');
 Route::get('/valentine/show/{id}', [App\Http\Controllers\ValentineController::class, 'showMessage'])->name('valentine.show');
+Route::get('/valentine/show', [App\Http\Controllers\ValentineController::class, 'showMessageDefault'])->name('valentine.show.default');
 
 // User question history page
 Route::middleware(['auth'])->get('/history', [App\Http\Controllers\HistoryController::class, 'index'])->name('history');
@@ -40,6 +41,9 @@ Route::middleware(['auth'])->get('/questions/{id}', [App\Http\Controllers\Valent
 
 // Valentine theme question page
 Route::post('/valentine-question/create', [ValentineController::class, 'create'])->name('valentine.question.create');
+// Custom Valentine message form
+Route::get('/valentine/custom/create', [App\Http\Controllers\ValentineController::class, 'customForm'])->name('valentine.custom.form');
+Route::post('/valentine/custom/create', [App\Http\Controllers\ValentineController::class, 'customMessageCreate'])->name('valentine.custom.create');
 
 
 Route::post('/questions', function () {

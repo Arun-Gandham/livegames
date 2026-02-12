@@ -56,4 +56,47 @@ class ValentineController extends Controller
             'questionId' => $id,
         ]);
     }
+    public function showMessageDefault() {
+        $staticValentainData = [ "title" => "Hey you… 🥺👉👈<br />will you be my Valentine? 💘", "subtitle" => "If you say yes, I’ll send you hugs, smiles, and a lifetime supply of “good morning” texts 😌💞", "button_1" => "Yes 💖", "button_2" => "No 🙈"];
+        return view('themes.valentine_show', [
+            'questions' => $staticValentainData,
+            'answer' => null,
+            'questionId' => null,
+        ]);
+    }
+    public function customMessageCreate(Request $request)
+    {
+        $data = $request->validate([
+            'header' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'subtitle' => 'nullable|string|max:255',
+            'button_1' => 'required|string|max:255',
+            'button_2' => 'required|string|max:255',
+            'user_name' => 'required|string|max:255',
+        ]);
+
+        $questions_array = [
+            'header' => $data['header'],
+            'title' => $data['title'],
+            'subtitle' => $data['subtitle'],
+            'button_1' => $data['button_1'],
+            'button_2' => $data['button_2'],
+            'user_name' => $data['user_name'],
+        ];
+
+        $question = new \App\Models\Question();
+        $question->id = (string) \Illuminate\Support\Str::uuid();
+        $question->user_id = auth()->id();
+        $question->questions_array = json_encode(['questions_array' => $questions_array]);
+        $question->answer = null;
+        $question->theme_id = 143 ?? null;
+        $question->save();
+
+        return redirect()->route('history')->with('success', 'Your custom Valentine message has been created!');
+    }
+
+    public function customForm()
+    {
+        return view('custom_valentine_form');
+    }
 }

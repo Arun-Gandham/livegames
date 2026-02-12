@@ -345,7 +345,7 @@
         <main class="card">
             <div class="pill"><span class="dot"></span><span>tiny heart, big feelings 💗</span></div>
 
-            <h1>{!! isset($questions['questions_array']['title']) ? $questions['questions_array']['title'] : "Hey you… 🥺👉👈<br />will you basdaaaaaaaaaaaaaae my Valentine? 💘" !!}</h1>
+            <h1>{!! isset($questions['questions_array']['title']) ? $questions['questions_array']['title'] : "Hey you… 🥺👉👈<br />will you be my Valentine? 💘" !!}</h1>
 
 
 
@@ -362,7 +362,8 @@
                 </div>
             </div>
             @else
-            <form method="POST" action="{{ route('valentine.answer', ['id' => $questionId]) }}">
+            <form method="{{ isset($questionId) ? 'POST' : 'GET' }}" action="{{ isset($questionId) ? route('valentine.answer', ['id' => $questionId]) : '#' }}">
+
                 @csrf
                 <div class="arena" id="arena">
                     <button type="submit" name="answer" value="Yes 💖" class="yes" id="yesBtn">{!! isset($questions['questions_array']['button_1']) ? $questions['questions_array']['button_1'] : "Yes 💖" !!}</button>
