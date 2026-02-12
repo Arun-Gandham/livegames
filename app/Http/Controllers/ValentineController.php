@@ -30,4 +30,13 @@ class ValentineController extends Controller
         // Redirect back with a success message
         return redirect()->route('history')->with('success', 'Your questions have been submitted successfully!');
     }
+
+    public function showMessage($id)
+    {
+        $question = \App\Models\Question::findOrFail($id);
+        $question->last_seen_at = now();
+        $question->save();
+        $questionsArray = json_decode($question->questions_array, true);
+        return view('themes.valentine_show', ['questions' => $questionsArray]);
+    }
 }

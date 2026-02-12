@@ -18,6 +18,7 @@
                                     <th>Created At</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
+                                    <th>Copy Link</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,6 +68,9 @@
                                             </button>
                                         </form>
                                     </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="copyQuestionLink('{{ url('/questions/'.$question->id) }}')">Copy Link</button>
+                                    </td>
                                 </tr>
                                 @empty
                                 <tr>
@@ -74,6 +78,17 @@
                                 </tr>
                                 @endforelse
                             </tbody>
+                        </table>
+                        <script>
+                            function copyQuestionLink(link) {
+                                navigator.clipboard.writeText(link).then(function() {
+                                    alert('Link copied to clipboard!');
+                                }, function(err) {
+                                    alert('Failed to copy link: ' + err);
+                                });
+                            }
+
+                        </script>
                         </table>
                     </div>
                 </div>

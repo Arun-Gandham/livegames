@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->get('/history', [App\Http\Controllers\HistoryController::class, 'index'])->name('history');
 // Soft delete question
 Route::middleware(['auth'])->delete('/questions/{id}', [App\Http\Controllers\QuestionDeleteController::class, 'destroy'])->name('questions.destroy');
+Route::middleware(['auth'])->get('/questions/{id}', [App\Http\Controllers\ValentineController::class, 'showMessage'])->name('questions.show');
 
 // Valentine theme question page
 Route::post('/valentine-question/create', [ValentineController::class, 'create'])->name('valentine.question.create');
