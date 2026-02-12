@@ -46,4 +46,20 @@ Route::get('/valentine-show', function () {
 Route::get('/valentine-show', function () {
     return view('themes.valentine_show');
 })->name('valentine.show');
+
+// Contact Us page
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+// Privacy Policy page
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
+
+// My Love Journey page
+Route::get('/love-journey', function () {
+    return view('love_journey');
+})->name('love.journey');
+
 require __DIR__.'/auth.php';
