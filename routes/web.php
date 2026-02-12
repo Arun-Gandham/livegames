@@ -40,13 +40,13 @@ Route::middleware(['auth'])->delete('/questions/{id}', [App\Http\Controllers\Que
 Route::middleware(['auth'])->get('/questions/{id}', [App\Http\Controllers\ValentineController::class, 'showMessage'])->name('questions.show');
 
 // Valentine theme question page
-Route::post('/valentine-question/create', [ValentineController::class, 'create'])->name('valentine.question.create');
+Route::middleware('auth')->post('/valentine-question/create', [ValentineController::class, 'create'])->name('valentine.question.create');
 // Custom Valentine message form
-Route::get('/valentine/custom/create', [App\Http\Controllers\ValentineController::class, 'customForm'])->name('valentine.custom.form');
-Route::post('/valentine/custom/create', [App\Http\Controllers\ValentineController::class, 'customMessageCreate'])->name('valentine.custom.create');
+Route::middleware('auth')->get('/valentine/custom/create', [App\Http\Controllers\ValentineController::class, 'customForm'])->name('valentine.custom.form');
+Route::middleware('auth')->post('/valentine/custom/create', [App\Http\Controllers\ValentineController::class, 'customMessageCreate'])->name('valentine.custom.create');
 
 
-Route::post('/questions', function () {
+Route::middleware('auth')->post('/questions', function () {
     // This is a placeholder. You should use a controller for real logic.
     return redirect()->route('valentine.question.create')->with('success', 'Question sent!');
 })->name('questions.store');
