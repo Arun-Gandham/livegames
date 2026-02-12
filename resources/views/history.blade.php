@@ -2,6 +2,19 @@
     <x-slot name="header">
         <h1>My Question History</h1>
     </x-slot>
+    @if(session('success'))
+    <div id="toast-success" style="position: fixed; top: 30px; right: 30px; z-index: 9999; min-width: 220px; background: #fff0f6; color: #d63384; border: 2px solid #d63384; border-radius: 16px; box-shadow: 0 4px 24px #d6338440; padding: 18px 32px; font-size: 1.1em; display: flex; align-items: center; gap: 12px;">
+        <span style="font-size:1.5em;">🎉</span>
+        <span>{{ session('success') }}</span>
+    </div>
+    <script>
+        setTimeout(() => {
+            const toast = document.getElementById('toast-success');
+            if (toast) toast.style.display = 'none';
+        }, 2500);
+
+    </script>
+    @endif
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="card col-md-12 mb-4">
