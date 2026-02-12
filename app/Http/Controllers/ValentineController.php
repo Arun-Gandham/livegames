@@ -31,12 +31,29 @@ class ValentineController extends Controller
         return redirect()->route('history')->with('success', 'Your questions have been submitted successfully!');
     }
 
+    public function answer(Request $request, $id)
+    {
+        $question = \App\Models\Question::findOrFail($id);
+        $question->answer = $request->input('answer', 'Yes 💖');
+        $question->answered_at = now();
+        $question->save();
+        return redirect()->route('valentine.show', ['id' => $id]);
+    }
+
     public function showMessage($id)
     {
         $question = \App\Models\Question::findOrFail($id);
+        if ($question->is_deleted) {
+            abort(404);
+        }
         $question->last_seen_at = now();
         $question->save();
         $questionsArray = json_decode($question->questions_array, true);
-        return view('themes.valentine_show', ['questions' => $questionsArray]);
+        $answer = $question->answer;
+        return view('themes.valentine_show', [
+            'questions' => $questionsArray,
+            'answer' => $answer,
+            'questionId' => $id,
+        ]);
     }
 }

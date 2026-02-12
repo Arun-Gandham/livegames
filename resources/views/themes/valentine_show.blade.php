@@ -349,13 +349,23 @@
 
         </p>
 
-        <div class="arena" id="arena">
-            <button class="yes" id="yesBtn">{!! isset($questions['questions_array']['button_1']) ? $questions['questions_array']['button_1'] : "Yes 💖" !!}</button>
-
-            <button class="no" id="noBtn">{!! isset($questions['questions_array']['button_2']) ? $questions['questions_array']['button_2'] : "No 🙈" !!}</button>
+        @if(!empty($answer))
+        <div class="arena" style="background: #fffbe6; min-height: 80px; display: flex; align-items: center; justify-content: center;">
+            <div style="font-size: 1.3em; color: #d63384;">
+                {{-- <strong>You already answered!</strong><br> --}}
+                <span>Your answer is: <span style="color:#20c997;">{{ $answer }}</span></span>
+            </div>
         </div>
-
+        @else
+        <form method="POST" action="{{ route('valentine.answer', ['id' => $questionId]) }}">
+            @csrf
+            <div class="arena" id="arena">
+                <button type="submit" name="answer" value="Yes 💖" class="yes" id="yesBtn">{!! isset($questions['questions_array']['button_1']) ? $questions['questions_array']['button_1'] : "Yes 💖" !!}</button>
+                <button type="button" class="no" id="noBtn">{!! isset($questions['questions_array']['button_2']) ? $questions['questions_array']['button_2'] : "No 🙈" !!}</button>
+            </div>
+        </form>
         <div class="hint">Try to touch “No” 😄 (it floats anywhere inside the box)</div>
+        @endif
     </main>
 
     <section class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">

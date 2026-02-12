@@ -28,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+// Valentine answer update (AJAX)
+Route::post('/valentine/answer/{id}', [App\Http\Controllers\ValentineController::class, 'answer'])->name('valentine.answer');
+Route::get('/valentine/show/{id}', [App\Http\Controllers\ValentineController::class, 'showMessage'])->name('valentine.show');
 
 // User question history page
 Route::middleware(['auth'])->get('/history', [App\Http\Controllers\HistoryController::class, 'index'])->name('history');
@@ -44,8 +47,8 @@ Route::post('/questions', function () {
     return redirect()->route('valentine.question.create')->with('success', 'Question sent!');
 })->name('questions.store');
 
-// Static Valentine show page
-Route::get('/valentine/{id}',  [ValentineController::class, 'show'])->name('valentine.show');
+// Static Valentine show page (handled above with showMessage)
+// Route::get('/valentine/{id}',  [ValentineController::class, 'show'])->name('valentine.show');
 // Route::get('/history',  [ValentineController::class, 'show'])->name('valentine.show');
 
 // Contact Us page
