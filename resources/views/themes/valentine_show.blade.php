@@ -354,7 +354,7 @@
                 <span>Your answer is: <span style="color:#20c997;">{{ $answer }}</span></span>
             </div>
             <div>
-                <a href="{{ url('/valentine/custom/create') }}" class="btn btn-pink fw-bold" style="background: linear-gradient(135deg, #ff4d88, #ff2e63); color: #fff; border-radius: 999px; padding: 14px 36px; font-size: 1.15em; box-shadow: 0 6px 24px #ff4d8840; transition: transform 0.12s; display: inline-block; margin-top: 8px; letter-spacing: 0.5px;">
+                <a href="{{ route('home') }}" class="btn btn-pink fw-bold" style="background: linear-gradient(135deg, #ff4d88, #ff2e63); color: #fff; border-radius: 999px; padding: 14px 36px; font-size: 1.15em; box-shadow: 0 6px 24px #ff4d8840; transition: transform 0.12s; display: inline-block; margin-top: 8px; letter-spacing: 0.5px;">
                     Create Your Own Valentine Message!
                 </a>
             </div>
@@ -365,11 +365,10 @@
             @csrf
             <div class="arena" id="arena">
                 <button type="submit" name="answer" value="{!! isset($questions['questions_array']['button_1']) ? $questions['questions_array']['button_1'] : " Yes 💖" !!}" class="yes" id="yesBtn">{!! isset($questions['questions_array']['button_1']) ? $questions['questions_array']['button_1'] : "Yes 💖" !!}</button>
-
                 <button type="{!! isset($questions['questions_array']['button_2_clickable']) && $questions['questions_array']['button_2_clickable'] == 1 ? 'submit' : 'button' !!}" name="answer" class="no" value="{!! isset($questions['questions_array']['button_2']) ? $questions['questions_array']['button_2'] : " No 🙈" !!}" id="{!! isset($questions['questions_array']['button_2_clickable']) && $questions['questions_array']['button_2_clickable'] == 1 ? '' : 'noBtn' !!}">{!! isset($questions['questions_array']['button_2']) ? $questions['questions_array']['button_2'] : "No 🙈" !!}</button>
             </div>
         </form>
-        <div class="hint">Try to touch “No” 😄 (it floats anywhere inside the box)</div>
+        <div class="hint">Try to touch (it floats anywhere inside the box)</div>
 
         @endif
     </main>
@@ -379,7 +378,6 @@
             <h2 id="modalTitle">Yaaaaay!! 💞</h2>
             <p>You just made my day 1000× cuter 💗</p>
             <p>Virtual hug incoming 🫶✨</p>
-            {{-- <button class="close" id="closeBtn">Close</button> --}}
         </div>
     </section>
 
