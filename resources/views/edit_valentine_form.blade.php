@@ -3,8 +3,9 @@
         <h1>Edit Valentine Message</h1>
     </x-slot>
     <div class="py-12">
-        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="card p-5 shadow rounded-4" style="background: #fff0f6;">
+
                 @if ($errors->any())
                 <div class="alert alert-danger mb-3" style="background:#fff0f6; color:#d63384; border:1px solid #d63384; border-radius:10px;">
                     <ul class="mb-0" style="list-style:none; padding-left:0;">
