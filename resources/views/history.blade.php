@@ -73,6 +73,9 @@
                                         {{ $question->updated_at ? $question->updated_at->format('d M Y h:i A') : '' }}
                                     </td>
                                     <td class="text-center">
+                                        @if(empty($question->answer))
+                                            <a href="{{ route('valentine.edit', $question->id) }}" class="btn btn-sm btn-outline-warning mb-1">Edit</a>
+                                        @endif
                                         <form method="POST" action="{{ route('questions.destroy', $question->id) }}" style="display:inline;">
                                             @csrf
                                             @method('DELETE')

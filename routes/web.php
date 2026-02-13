@@ -38,6 +38,9 @@ Route::middleware(['auth'])->get('/history', [App\Http\Controllers\HistoryContro
 // Soft delete question
 Route::middleware(['auth'])->delete('/questions/{id}', [App\Http\Controllers\QuestionDeleteController::class, 'destroy'])->name('questions.destroy');
 Route::middleware(['auth'])->get('/questions/{id}', [App\Http\Controllers\ValentineController::class, 'showMessage'])->name('questions.show');
+// Edit Valentine message (only if unanswered)
+Route::get('/valentine/edit/{id}', [App\Http\Controllers\ValentineController::class, 'edit'])->name('valentine.edit');
+Route::post('/valentine/update/{id}', [App\Http\Controllers\ValentineController::class, 'update'])->name('valentine.update');
 
 // Valentine theme question page
 Route::middleware('auth')->post('/valentine-question/create', [ValentineController::class, 'create'])->name('valentine.question.create');

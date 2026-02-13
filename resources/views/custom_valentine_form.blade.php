@@ -3,8 +3,19 @@
         <h1>Create Custom Valentine Message</h1>
     </x-slot>
     <div class="py-12">
-        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="card p-5 shadow rounded-4" style="background: #fff0f6;">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger mb-3" style="background:#fff0f6; color:#d63384; border:1px solid #d63384; border-radius:10px;">
+                        <ul class="mb-0" style="list-style:none; padding-left:0;">
+                            @foreach ($errors->all() as $error)
+                                <li>❌ {{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ route('valentine.custom.create') }}">
                     @csrf
                     <div class="mb-3">
@@ -26,10 +37,6 @@
                     <div class="mb-3">
                         <label class="form-label fw-bold">Button 2 Text</label>
                         <input type="text" name="button_2" class="form-control" value="No 🙈" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Your Name</label>
-                        <input type="text" name="user_name" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Button 2 Clickable?</label>

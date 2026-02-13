@@ -72,7 +72,7 @@ class ValentineController extends Controller
             'subtitle' => 'nullable|string|max:255',
             'button_1' => 'required|string|max:255',
             'button_2' => 'required|string|max:255',
-            'user_name' => 'required|string|max:255',
+            'button_2_clickable' => 'required|in:0,1',
         ]);
 
         $questions_array = [
@@ -81,7 +81,7 @@ class ValentineController extends Controller
             'subtitle' => $data['subtitle'],
             'button_1' => $data['button_1'],
             'button_2' => $data['button_2'],
-            'user_name' => $data['user_name'],
+            'button_2_clickable' => $data['button_2_clickable']
         ];
 
         $question = new \App\Models\Question();
@@ -98,5 +98,42 @@ class ValentineController extends Controller
     public function customForm()
     {
         return view('custom_valentine_form');
+    }
+    public function edit($id)
+    {
+        $question = \App\Models\Question::findOrFail($id);
+        if (!empty($question->answer)) {
+            return redirect()->route('history')->with('success', 'Answered messages cannot be edited.');
+        }
+        $qArr = json_decode($question->questions_array, true);
+        $qArr = $qArr['questions_array'] ?? $qArr;
+        return view('edit_valentine_form', compact('question', 'qArr'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $question = \App\Models\Question::findOrFail($id);
+        if (!empty($question->answer)) {
+            return redirect()->route('history')->with('success', 'Answered messages cannot be edited.');
+        }
+        $data = $request->validate([
+            'header' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'subtitle' => 'nullable|string|max:255',
+            'button_1' => 'required|string|max:255',
+            'button_2' => 'required|string|max:255',
+            'button_2_clickable' => 'required|in:0,1',
+        ]);
+        $questions_array = [
+            'header' => $data['header'],
+            'title' => $data['title'],
+            'subtitle' => $data['subtitle'],
+            'button_1' => $data['button_1'],
+            'button_2' => $data['button_2'],
+            'button_2_clickable' => $data['button_2_clickable'],
+        ];
+        $question->questions_array = json_encode(['questions_array' => $questions_array]);
+        $question->save();
+        return redirect()->route('history')->with('success', 'Valentine message updated successfully!');
     }
 }
