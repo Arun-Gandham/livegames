@@ -20,15 +20,15 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label fw-bold">Header</label>
-                        <input type="text" name="header" class="form-control" required>
+                        <input type="text" name="header" class="form-control" required value="tiny heart, big feelings 💗">
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Title</label>
-                        <input type="text" name="title" class="form-control" required>
+                        <input type="text" name="title" class="form-control" required value="Hey you… 🥺👉👈<br />will you be my Valentine? 💘">
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Subtitle</label>
-                        <input type="text" name="subtitle" class="form-control">
+                        <input type="text" name="subtitle" class="form-control" value="If you say yes, I’ll send you hugs, smiles, and a lifetime supply of “good morning” texts 😌💞">
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Button 1 Text</label>
