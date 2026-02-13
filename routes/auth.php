@@ -33,6 +33,10 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.store');
+
+    // Forgot password by mobile
+    Route::get('forgot-password-mobile', [PasswordResetLinkController::class, 'createMobile'])->name('password.mobile.request');
+    Route::post('forgot-password-mobile', [PasswordResetLinkController::class, 'storeMobile'])->name('password.mobile.email');
 });
 
 Route::middleware('auth')->group(function () {
@@ -57,3 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });
+
+// Forgot password by mobile (should be outside auth middleware)
+Route::post('forgot-password-mobile', [PasswordResetLinkController::class, 'verifyMobile'])->name('password.mobile.verify');
+Route::post('reset-password-mobile', [PasswordResetLinkController::class, 'updateMobile'])->name('password.mobile.update');
