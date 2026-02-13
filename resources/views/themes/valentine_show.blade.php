@@ -342,7 +342,8 @@
     <body>
         <div id="bg"></div>
         <main class="card">
-            <div class="pill"><span class="dot"></span><span>{!! isset($questions['questions_array']['title']) ? $questions['questions_array']['header'] : "tiny heart, big feelings 💗" !!}</span></div>
+            <div class="pill"><span class="dot"></span><span>{!! isset($questions['questions_array']['header']) ? $questions['questions_array']['header'] : "tiny heart, big feelings 💗" !!}</span></div>
+
             <h1>{!! isset($questions['questions_array']['title']) ? $questions['questions_array']['title'] : "Hey you… 🥺👉👈<br />will you be my Valentine? 💘" !!}</h1>
             <p class="subtitle">
                 {!! isset($questions['questions_array']['subtitle']) ? $questions['questions_array']['subtitle'] : "If you say yes, I’ll send you hugs, smiles, and a lifetime supply of “good morning” texts 😌💞" !!}
@@ -359,11 +360,9 @@
 
                 @csrf
                 <div class="arena" id="arena">
-                    <button type="submit" name="answer" value="Yes 💖" class="yes" id="yesBtn">{!! isset($questions['questions_array']['button_1']) ? $questions['questions_array']['button_1'] : "Yes 💖" !!}</button>
-                    <button type="button" class="no" id="{!! isset($questions['questions_array']['button_2_clickable']) ? 'noBtn' : '' !!}">{!! isset($questions['questions_array']['button_2']) ? $questions['questions_array']['button_2'] : "No 🙈" !!}</button>
+                    <button type="submit" name="answer" value="{!! isset($questions['questions_array']['button_1']) ? $questions['questions_array']['button_1'] : " Yes 💖" !!}" class="yes" id="yesBtn">{!! isset($questions['questions_array']['button_1']) ? $questions['questions_array']['button_1'] : "Yes 💖" !!}</button>
 
-
-
+                    <button type="{!! isset($questions['questions_array']['button_2_clickable']) && $questions['questions_array']['button_2_clickable'] == 1 ? 'submit' : 'button' !!}" name="answer" class="no" value="{!! isset($questions['questions_array']['button_2']) ? $questions['questions_array']['button_2'] : " No 🙈" !!}" id="{!! isset($questions['questions_array']['button_2_clickable']) && $questions['questions_array']['button_2_clickable'] == 1 ? '' : 'noBtn' !!}">{!! isset($questions['questions_array']['button_2']) ? $questions['questions_array']['button_2'] : "No 🙈" !!}</button>
                 </div>
             </form>
             <div class="hint">Try to touch “No” 😄 (it floats anywhere inside the box)</div>

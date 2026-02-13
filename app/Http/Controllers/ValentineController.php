@@ -16,7 +16,7 @@ class ValentineController extends Controller
         //     'theme_id' => 'nullable|string',
         // ]);
         $validatedData = [];
-        $staticValentainData = [ 'questions_array' => [ "title" => "Hey you… 🥺👉👈<br />will you be my Valentine? 💘", "subtitle" => "If you say yes, I’ll send you hugs, smiles, and a lifetime supply of “good morning” texts 😌💞", "button_1" => "Yes 💖", "button_2" => "No 🙈"]];
+        $staticValentainData = [ 'questions_array' => [ "title" => "Hey you… 🥺👉👈<br />will you be my Valentine? 💘", "subtitle" => "If you say yes, I’ll send you hugs, smiles, and a lifetime supply of “good morning” texts 😌💞", "button_1" => "Yes 💖", "button_2" => "No 🙈",'button_2_clickable' => "0"]];
         $validatedData['questions_array'] = $staticValentainData;
         // Create a new question entry in the database
         $question = new \App\Models\Question();

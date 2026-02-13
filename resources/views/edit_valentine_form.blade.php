@@ -18,7 +18,8 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label fw-bold">Header</label>
-                        <input type="text" name="header" class="form-control" value="{{ old('header', $qArr['header'] ?? '') }}" required>
+                        <input type="text" name="header" class="form-control" value="{{ old('header', $qArr['header'] ?? 'tiny heart, big feelings 💗') }}" required>
+
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Title</label>
