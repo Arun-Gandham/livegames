@@ -1,3 +1,11 @@
+@section('title', "Valentine's Day Question - AV Live Games")
+@section('meta_description', "Send a special Valentine's Day question to your loved one with AV Live Games. Make this day memorable!")
+@section('meta_keywords', "valentine, question, love, AV, live games, send message")
+@section('og_title', "Valentine's Day Question - AV Live Games")
+@section('og_description', "Send a special Valentine's Day question to your loved one with AV Live Games. Make this day memorable!")
+@section('twitter_title', "Valentine's Day Question - AV Live Games")
+@section('twitter_description', "Send a special Valentine's Day question to your loved one with AV Live Games. Make this day memorable!")
+
 <x-app-layout>
     <x-slot name="header">
         <h1>Valentine's Day Question</h1>

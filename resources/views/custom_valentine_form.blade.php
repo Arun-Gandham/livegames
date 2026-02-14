@@ -1,3 +1,11 @@
+@section('title', 'Create Custom Valentine - AV Live Games')
+@section('meta_description', 'Create a custom Valentine message for your loved one with AV Live Games. Personalize your question and make it special!')
+@section('meta_keywords', 'custom valentine, create, love, AV, live games, message')
+@section('og_title', 'Create Custom Valentine - AV Live Games')
+@section('og_description', 'Create a custom Valentine message for your loved one with AV Live Games. Personalize your question and make it special!')
+@section('twitter_title', 'Create Custom Valentine - AV Live Games')
+@section('twitter_description', 'Create a custom Valentine message for your loved one with AV Live Games. Personalize your question and make it special!')
+
 <x-app-layout>
     <x-slot name="header">
         <h1>Create Custom Valentine Message</h1>

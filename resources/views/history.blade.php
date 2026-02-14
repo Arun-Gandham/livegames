@@ -1,3 +1,11 @@
+@section('title', 'Question History - AV Live Games')
+@section('meta_description', 'View your question and answer history on AV Live Games. Track your interactions and memories!')
+@section('meta_keywords', 'history, questions, answers, AV, live games, user activity')
+@section('og_title', 'Question History - AV Live Games')
+@section('og_description', 'View your question and answer history on AV Live Games. Track your interactions and memories!')
+@section('twitter_title', 'Question History - AV Live Games')
+@section('twitter_description', 'View your question and answer history on AV Live Games. Track your interactions and memories!')
+
 <x-app-layout>
     <x-slot name="header">
         <h1>My Question History</h1>

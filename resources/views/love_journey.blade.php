@@ -1,3 +1,11 @@
+@section('title', 'Love Journey - AV Live Games')
+@section('meta_description', 'Read about the journey of love, its ups and downs, and the beauty of togetherness on AV Live Games.')
+@section('meta_keywords', 'love journey, romance, togetherness, AV, live games, story')
+@section('og_title', 'Love Journey - AV Live Games')
+@section('og_description', 'Read about the journey of love, its ups and downs, and the beauty of togetherness on AV Live Games.')
+@section('twitter_title', 'Love Journey - AV Live Games')
+@section('twitter_description', 'Read about the journey of love, its ups and downs, and the beauty of togetherness on AV Live Games.')
+
 <x-app-layout>
     <x-slot name="header">
         <h1>My Love Journey</h1>

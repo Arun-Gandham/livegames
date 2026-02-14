@@ -1,3 +1,11 @@
+@section('title', 'Privacy Policy - AV Live Games')
+@section('meta_description', 'Read the privacy policy for AV Live Games. Learn how we protect your data and your rights as a user.')
+@section('meta_keywords', 'privacy, policy, data protection, GDPR, AV, live games')
+@section('og_title', 'Privacy Policy - AV Live Games')
+@section('og_description', 'Read the privacy policy for AV Live Games. Learn how we protect your data and your rights as a user.')
+@section('twitter_title', 'Privacy Policy - AV Live Games')
+@section('twitter_description', 'Read the privacy policy for AV Live Games. Learn how we protect your data and your rights as a user.')
+
 <x-app-layout>
     <x-slot name="header">
         <h1>Privacy Policy</h1>

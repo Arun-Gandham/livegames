@@ -1,3 +1,13 @@
+@section('title', "Dashboard - AV Live Games")
+@section('meta_description', "Access your dashboard on AV Live Games. Manage your games, view stats, and enjoy special events like Valentine's Day!")
+@section('meta_keywords', 'dashboard, live games, AV, user panel, events, valentine')
+@section('og_title', "Dashboard - AV Live Games")
+@section('og_description', "Access your dashboard on AV Live Games. Manage your games, view stats, and enjoy special events like Valentine's Day!")
+@section('og_image', asset('images/themes/valentine_pink.png'))
+@section('twitter_title', "Dashboard - AV Live Games")
+@section('twitter_description', "Access your dashboard on AV Live Games. Manage your games, view stats, and enjoy special events like Valentine's Day!")
+@section('twitter_image', asset('images/themes/valentine_pink.png'))
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">

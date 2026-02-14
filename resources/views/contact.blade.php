@@ -1,3 +1,11 @@
+@section('title', 'Contact Us - AV Live Games')
+@section('meta_description', 'Contact AV Live Games for support, questions, or feedback. We are here to help you!')
+@section('meta_keywords', 'contact, support, help, AV, live games, lovegame, feedback')
+@section('og_title', 'Contact Us - AV Live Games')
+@section('og_description', 'Contact AV Live Games for support, questions, or feedback. We are here to help you!')
+@section('twitter_title', 'Contact Us - AV Live Games')
+@section('twitter_description', 'Contact AV Live Games for support, questions, or feedback. We are here to help you!')
+
 <x-app-layout>
     <x-slot name="header">
         <h1>Contact Us</h1>

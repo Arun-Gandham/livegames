@@ -17,7 +17,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Valentine? 💘</title>
+    <title>Valentine's Day - AV Live Games</title>
+    <meta name="description" content="Experience a fun and interactive Valentine's Day question with AV Live Games. Share love and joy in a unique way!">
+    <meta name="keywords" content="valentine, love, question, AV, live games, fun, interactive">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Valentine's Day - AV Live Games">
+    <meta property="og:description" content="Experience a fun and interactive Valentine's Day question with AV Live Games. Share love and joy in a unique way!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('images/themes/valentine_pink.png') }}">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Valentine's Day - AV Live Games">
+    <meta name="twitter:description" content="Experience a fun and interactive Valentine's Day question with AV Live Games. Share love and joy in a unique way!">
+    <meta name="twitter:image" content="{{ asset('images/themes/valentine_pink.png') }}">
     <style>
         :root {
             --pink: #ff4d88;
